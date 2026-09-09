@@ -1,0 +1,294 @@
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc;
+  --panel: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --accent: #2563eb;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --panel: #16203a;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --line: #24304d;
+    --accent: #60a5fa;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+  font: 13px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+header {
+  padding: 12px 12px 10px;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.badge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--line);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.badge[data-state="live"] {
+  background: rgba(34, 197, 94, 0.16);
+  color: #15803d;
+}
+
+.badge[data-state="idle"] {
+  background: rgba(251, 191, 36, 0.18);
+  color: #b45309;
+}
+
+.meeting-select {
+  width: 100%;
+  margin-top: 8px;
+  padding: 5px 6px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 11px;
+}
+
+.meeting {
+  margin: 6px 0 0;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.meeting:empty {
+  display: none;
+}
+
+.status {
+  margin: 6px 0 8px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.people {
+  margin-bottom: 8px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.people summary {
+  cursor: pointer;
+}
+
+.people ul {
+  margin: 6px 0 0;
+  padding-left: 16px;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.people li {
+  color: var(--text);
+}
+
+.people .source {
+  color: var(--muted);
+}
+
+.vault {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.vault button {
+  padding: 5px 8px;
+  font-size: 11px;
+}
+
+.vault span {
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vault span[data-state="ok"] {
+  color: #15803d;
+}
+
+.vault span[data-state="error"] {
+  color: #dc2626;
+}
+
+#search {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+}
+
+.feed {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.empty {
+  margin: 24px 8px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.line {
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+
+.line.pending {
+  border-style: dashed;
+  opacity: 0.75;
+}
+
+.line-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.speaker {
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--accent);
+}
+
+.time {
+  font-size: 11px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.text {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+footer {
+  padding: 10px 12px;
+  border-top: 1px solid var(--line);
+  background: var(--panel);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.toggles {
+  display: flex;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.toggles label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.line.marked {
+  border-color: #f59e0b;
+  box-shadow: inset 3px 0 0 #f59e0b;
+}
+
+.mark {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1px 6px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.line:hover .mark,
+.mark:focus-visible,
+.line.marked .mark {
+  opacity: 1;
+}
+
+.line.marked .mark {
+  border-color: #f59e0b;
+  color: #b45309;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+}
+
+#delete {
+  grid-column: 1 / -1;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  padding: 7px 8px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button.danger {
+  background: var(--line);
+  color: var(--text);
+}
+
+button:active {
+  transform: translateY(1px);
+}

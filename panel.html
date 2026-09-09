@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Teams Transcript</title>
+    <link rel="stylesheet" href="panel.css" />
+  </head>
+  <body>
+    <header>
+      <div class="title-row">
+        <h1>Teams Transcript</h1>
+        <span id="badge" class="badge">—</span>
+      </div>
+      <select id="meeting-select" class="meeting-select" hidden></select>
+      <p id="meeting" class="meeting"></p>
+      <p id="status" class="status">загрузка…</p>
+      <details id="people" class="people" hidden>
+        <summary id="people-summary">Участники</summary>
+        <ul id="people-list"></ul>
+      </details>
+      <div class="vault">
+        <button id="choose-vault" type="button">Выбрать папку Obsidian</button>
+        <span id="vault-status">Папка не выбрана</span>
+      </div>
+      <input id="search" type="search" placeholder="Фильтр по тексту или спикеру" />
+    </header>
+
+    <main id="feed" class="feed">
+      <p class="empty">Включи Live Captions во встрече — реплики появятся здесь.</p>
+    </main>
+
+    <footer>
+      <div class="toggles">
+        <label>
+          <input id="autoscroll" type="checkbox" checked />
+          Автопрокрутка
+        </label>
+        <label>
+          <input id="only-actions" type="checkbox" />
+          Только экшены
+        </label>
+      </div>
+      <div class="actions">
+        <button id="copy" type="button">Копировать</button>
+        <button id="export-json" type="button">JSON</button>
+        <button id="export-txt" type="button">TXT</button>
+        <button id="clear" type="button" class="danger">Очистить</button>
+        <button id="delete" type="button" class="danger">Удалить</button>
+      </div>
+    </footer>
+
+    <script src="panel.js"></script>
+  </body>
+</html>

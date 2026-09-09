@@ -1,0 +1,6 @@
+{
+  "name": "Transcriptly",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chrome extension that captures Microsoft Teams live captions for later analysis."
+}

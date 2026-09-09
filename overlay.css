@@ -1,0 +1,36 @@
+#teams-transcript-overlay {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 2147483647;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 180px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(17, 24, 39, 0.92);
+  color: #f9fafb;
+  font: 12px/1.35 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+  pointer-events: none;
+}
+
+#teams-transcript-overlay strong {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #93c5fd;
+}
+
+#teams-transcript-overlay[data-state="waiting"] strong {
+  color: #fbbf24;
+}
+
+#teams-transcript-overlay[data-state="capturing"] strong {
+  color: #86efac;
+}
+
+#teams-transcript-overlay[data-state="stale"] strong {
+  color: #fca5a5;
+}
